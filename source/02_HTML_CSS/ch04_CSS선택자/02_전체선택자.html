@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * { /* 전체선택자 = 전체 페이지 다저안 초기화 용도*/
+            margin: 0; /* 밖여백(위,우,하,좌) */
+            padding:0; /* 안여백(위,우,하,좌) */
+            color:mediumseagreen;
+        }
+        header, nav, section, footer {
+            border: 2px solid, yellowgreen;
+            width: 750px; /* 가로사이즈(블록형태그는 width를 지정하지 않으면 부모의 width로 세팅)*/
+            margin: 5px auto; /* 좌우 여백을 나눔 */
+            padding: 4px;
+            background-color: rgba(154,205,50,0.15)
+        }
+        header {
+            text-align: center;
+        }
+        nav ul {overflow:hidden; } /* 수평으로 하고픈 태그 부모단 */
+        nav ul li/* ,를 각각 추가하면 개별로 취급 ,를 추가하지않으면 대제목->내부->내부파일 */ /* 블록형태그를 수평으로 */{
+                   float:left;
+                   list-style:none; /* 동그라미 제거 */
+                   width:25%; /* 125px; */
+                   text-align:center;
+        }
+        section{
+            clear:both; /* float 속성을 지우고 싶을때 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>oo주식회사</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>회사소개</li>
+            <li>서비스소개</li>
+            <li>고객센터</li>
+            <li>공지사항</li>
+        </ul>
+    </nav>
+    <section>
+        <p>선택자란 웹페이지의 특정 부분을 선택하여, 태그의 속성을 변경하는 목적으로 사용</p><br>
+        <p>
+            <strong>오늘의 운세</strong><br>
+            타이밍이 중요하게 작용하는 날입니다.<br>
+            기회를 잘 잡으면 생각보다 큰 성과를 손쉽게 얻을 수 있습니다.<br>
+            평소에 자신이 바래왔던 프로젝트나 일에 참여할 수 있는 기회가 될 수 있으며<br>
+            자신의 의견을 조금 더 내세우는 것이 필요한 날입니다.<br>
+            남의 눈치를 보기보다는 자신의 소신을 따르는 것이 득이 됩니다.<br>
+            자신감 있게 자신의 의견을 드러내며 주변 사람들에게 자신을 인정하게 만드는 기회로 작용할 수 도 있습니다.<br>
+            주의를 살피는 것도 중요하지만 신속하게 판단하고 빠르게 움직이는 것이 더 중요한 날입니다.
+        </p>
+    </section>
+    <footer>
+        <p>서울시 관악구 봉천동</p>
+    </footer>
+</body>
+</html>

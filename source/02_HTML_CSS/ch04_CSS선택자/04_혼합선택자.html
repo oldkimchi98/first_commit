@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            border: 2px solid yellowgreen;
+        }
+
+        div#header, div#footer { /* div태그중 id가 header이고 id가 footer 띄어쓰기하면 안됨 주의. */
+            width: 600px;
+            margin: 0 auto;
+            background-color: rgba(154,205,50,0.15);
+            text-align: center;
+            /*            text-decoration:underline; 밑줄치기 */
+        }
+
+        div#wrap { /* div태그 중 id가 wrap */
+            width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 255, 255, 0.3);
+            overflow: hidden; /* 부모단에 */
+        }
+
+            #wrap #content {
+                float: left; /* 블록형태그를 수평으로 300 */
+                width: 298px; /* content가로 = width(348px) + border(1px*2) = 350 */
+                height: 250px;
+            }
+
+                div#wrap div#content li.odd { /* li태그 중 class명이 odd 이때, li 또한 띄어쓰기 금지 */
+                    font-size: 1.5em; /* 원래 크기의 1.5배 */
+                }
+
+                #wrap #content .menu2 {
+                    font-weight: bold;
+                }
+
+            #wrap #side_banner {
+                float: left; /* 블록형태그를 수평으로 250 */
+                width: 248px; /* 가로 = width(248px) + border(1px*2) = 250 */
+                height: 250px;
+            }
+
+                #wrap #side_banner img {
+                    width: 150px;
+                }
+
+        #footer {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>HEADER</h1>
+    </div>
+    <div id="wrap">
+        <div id="content">
+            <h2>CONTENT</h2>
+            <ul>
+                <li class="menu1 odd">menu1</li>
+                <li class="menu2">menu2</li>
+                <li class="menu3 odd">menu3</li>
+                <li class="menu2">menu4</li>
+                <li class="menu1 odd">menu5</li>
+            </ul>
+        </div>
+        <div id="side_banner">
+            <h2>BANNER</h2>
+            <a href="http://www.daum.net">
+                <img src="https://www.brandb.net/_next/image?url=https%3A%2F%2Fapi.brandb.net%2Fapi%2Fv2%2Fcommon%2Fimage%3FfileId%3D29530&w=1920&q=75"
+                     alt="다음로고" />
+            </a>
+        </div>
+    </div>
+    <div id="footer">
+        <h1>FOOTER</h1>
+    </div>
+</body>
+</html>
