@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid gray;
+            padding: 10px;
+            text-align:justify; /* 양쪽정렬 */
+        }
+        #container p.nth-child(2n+1){background-color:violet;}
+        #container p:nth-child(1){font-size:.8em; /* pxtoem */}
+        #container p:nth-child(2){font-size: 100%; /* 기본사이즈는 16px */}
+        #container p:nth-child(3){font-size: 24px; }
+        #container p:nth-child(4){font-size: 24pt; /* 3pt = 4px */}
+        span{display:block; /* display 속성을 block으로 수정하면 block형 태그로 전환 */
+             color:gray;
+             font-size:.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>
+            현재에 집중하기: "언제나 현재에 집중할 수 있다면 행복할 것이다." (파울로 코엘료)<br />
+            <span>입력 2026.07.31</span>
+        </p>
+        <p>
+            오늘의 소중함: "절대 어제를 후회하지 마라. 인생은 오늘의 나 안에 있고 내일은 스스로 만드는 것이다."<br />
+            <span>입력 2026.07.31</span>
+        </p>
+        <p>
+            (L. 론 허바드)새로운 시작: "오늘은 당신의 남은 인생 중, 가장 첫 번째 날이다." (영화 아메리칸 뷰티 중)<br />
+            <span>입력 2026.07.31</span>
+        </p>
+    </div>
+</body>
+</html>

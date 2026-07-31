@@ -1,0 +1,114 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header, #nav, #section, #content, #banner, #footer {
+            border: 1px solid purple;
+        }
+
+        #header {
+            width: 1000px;
+            height: 100px;
+            margin: 0 0 7px 0;
+            background-color: yellow;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #nav {
+            height: 120px;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 0 7px 0;
+            width: 1000px;
+        }
+
+            #nav ul {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+                #nav ul li {
+                    float: left;
+                    width: 188px;
+                    height: 50px;
+                    line-height: 50px;
+                    list-style: none;
+                    text-align: center;
+                    background-color: rgba(255, 182, 193, 0.85);
+                    border-right: 5px solid white;
+                    box-sizing: border-box;
+                }
+
+                    #nav ul li:first-child {
+                        border-radius: 25px 0 0 25px;
+                        margin: 0 0 0 30px;
+                    }
+
+                    #nav ul li:last-child {
+                        border-radius: 0 25px 25px 0;
+                        margin: 0 30px 0 0;
+                    }
+
+            #nav li > a {
+                text-decoration: none;
+                color: purple;
+                font-weight: bold;
+            }
+
+        #section {
+            width: 1000px;
+            overflow: hidden;
+        }
+
+        #content {
+            float: left;
+            width: 830px;
+            height: 300px;
+            line-height: 40px;
+            text-align: center;
+            margin: 7px 5px 7px 5px;
+        }
+
+        #banner {
+            float: right;
+            width: 150px;
+            height: 300px;
+            line-height: 40px;
+            text-align: center;
+            margin: 7px 5px 7px 0;
+        }
+
+        #footer {
+            width: 1000px;
+            height: 100px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">HEADER</div>
+    <div id="nav">
+        NAVIGATION
+        <nav>
+            <ul>
+                <li><a href="menu1">menu1</a></li>
+                <li><a href="menu1">menu2</a></li>
+                <li><a href="menu1">menu3</a></li>
+                <li><a href="menu1">menu4</a></li>
+                <li><a href="menu1">menu5</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="section">
+        <div id="content">CONTENT</div>
+        <div id="banner">BANNER</div>
+    </div>
+    <div id="footer">FOOTER</div>
+</body>
+</html>
