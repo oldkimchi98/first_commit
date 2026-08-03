@@ -1,0 +1,106 @@
+/*** 전체항목 ***/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/***** ===== nav ===== *****/
+
+nav {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 80px;
+    line-height: 80px;
+}
+
+nav li{
+    float:left;
+}
+
+nav a{
+    display:block;
+    padding:5px 12px;
+    color:black;
+    text-decoration: none;
+}
+
+/***** 마우스 항목 효과 *****/ 
+nav a:hover{
+    border: 1px solid gray;
+    background-color: #f8f5ef;
+}
+
+#nav_leftmenu{
+    float: left;
+}
+
+#nav_rightmenu{
+    float: right;
+}
+
+#nav_leftmenu li{
+    margin-right: 30px;
+}
+
+#nav_rightmenu li{
+    margin-left: 30px;
+}
+
+/***** ===== content ===== *****/
+
+#content {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/** 마이페이지 **/
+#title {
+    margin: 50px 0 20px 0;
+}
+
+/** 왼쪽 메뉴 **/
+#lnb {
+    float:left;
+    width:300px;
+}
+
+/** 개인정보변경 page 전체 **/
+#my_content {
+    float:right;
+    width:680px;
+    border:1px solid gray;
+    box-sizing:border-box;
+}
+/** 개인정보변경 제목 **/
+#sub_title {
+    border:none;
+    border-bottom:1px solid gray;
+    padding:2px;
+}
+
+#modify {}
+
+form {}
+
+/** 저장 버튼 **/
+button {
+    margin: 30px 0 0 100px;
+}
+
+/***** ===== footer ===== *****/
+
+footer {
+    width: 1000px;
+    margin: 0 auto;
+}

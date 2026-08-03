@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="웹서비스개발.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 상단 메뉴 -->
+    <nav>
+        <div id="nav_leftmenu">
+            <ul>
+                <li><a href="#">LOGO</a></li>
+                <li><a href="#">참여하기</a></li>
+                <li><a href="#">개설하기</a></li>
+                <li><a href="#">검색하기</a></li>
+            </ul>
+        </div>
+        <div id="nav_rightmenu">
+            <ul>
+                <li><a href="#">홍길동님</a></li>
+                <li><a href="#">로그아웃</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 가운데 영역 -->
+    <div id="content">
+        <div id="title">마이페이지</div>
+        <div id="lnb">
+            <ul>
+                <li><a href="#">나의여행</a></li>
+                <li><a href="#">참여여행</a></li>
+                <li><a href="#">관심여행</a></li>
+                <li><a href="#">개인정보변경</a></li>
+                <li><a href="#">비밀번호변경</a></li>
+            </ul>
+        </div>
+
+        <!-- 개인정보변경 page 전체 -->
+        <div id="my_content">
+            
+            <!-- 개인정보변경 제목 -->
+        <div id="sub_title">개인정보변경</div>
+
+            <!-- 개인정보 입력항목 내용칸 및 저장 버튼 -->
+            <div id="modify">
+                <!-- 개인정보변경 내부 -> 입력항목 제목 (이름,아이디, ......)-->
+                <form>
+
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name"><br>
+
+                    <label for="userid">아이디</label>
+                    <input type="text" id="userid" name="userid"><br>
+
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email"><br>
+
+                    <label for="phone">전화</label>
+                    <input type="tel" id="phone" name="phone"><br>
+
+                    <label for="birth">생년월일</label>
+                    <input type="date" id="birth" name="birth"><br>
+
+                    <label for="address">주소</label>
+                    <input type="text" id="address" name="address"><br>                 <!-- 저장 버튼 submit-->
+                    
+                    <button type="submit">저장</button>
+                </form>
+            </div> <!-- 개인정보변경 내부 입력항목 닫기 -->
+        </div> <!-- 개인정보변경 page 전체 닫기 -->
+    </div> <!-- 가운데 영역 닫기 -->
+
+    <!-- 하단 -->
+    <footer>
+    </footer>
+</body>
+
+</html>
