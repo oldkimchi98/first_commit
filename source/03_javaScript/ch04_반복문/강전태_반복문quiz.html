@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title></title>
+    <style>
+
+    </style>
+    <script> // 자바 스크립트 코드 삽입 영역 //
+        // let  : 값이 바뀔 가능성이 있는 경우 <-> const : 값이 절대 바뀌지 않는 경우
+        let sum = 0;    // 누적점수 
+        let correct = 0;    // 점수 - 정상 입력한 횟수
+        let wrong = 0;   // 점수 - 잘못 입력한 횟수
+
+        while (confirm("누적할래?")) {    // while 반복으로 취소를 누를 때까지 반복. / confirm : 확인 or 취소
+            let score = parseFloat(prompt("누적할 점수?"));    // parseFloat() : 실수까지 읽음 = 260.5점 -> 260.5   
+            // prompt : 입력값 -> (누적할 점수? 질문 항목)에 대한 답변 칸에 작성된 입력값
+            if (!isNaN(score) && 0 <= score && score <= 100) {
+                // !isNan() : ()값이 NaN인지?
+                // && : and 의미로 자바 스크립트에서 &&는 우선순위로 취급하여 ()를 따로 칠 필요 X
+                sum += score;   // "sum은 score와 sum을 더한 것과 같은 값이다."
+                correct++;  // correct++ : correct 값에 1증가. / 정상 입력 횟수 1증가 표시
+            }
+            else {
+                wrong++;    // 잘못 입력한 횟수 1증가 표시 
+            }
+        }
+        document.write("누적점수 : " + sum + "<br>");
+        document.write("점수를 제대로 입력한 횟수 : " + correct + "<br>");
+        document.write("점수를 잘못 입력한 횟수 : " + wrong);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title></title>
+    <style>
+        table {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        input[type=submit]{
+            margin-top: 5px;1
+        }
+    </style>
+    <script>
+        function chk() {
+        if (!frm.num1.value){
+            alert('첫번째수를 재입력해주세요.');
+            frm.num1.focus();
+            return false;
+        }
+        else if (!frm.num2.value){
+            alert('두번째수를 재입력해주세요.');
+            frm.num2.focus();
+            return false;
+        }
+    }
+    // 두 수를 비교하여 얼마나 더 큰지
+    let num1 = 
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th><label for="num1">첫번째수</label></th>
+            <td><input type="number" name="num1" id="num1" placeholder="첫번째수를 입력하세요."/></td>
+        </tr>
+
+        <tr>
+            <th><label for="num2">두번째수</label></th>
+            <td><input type="number" name="num2" id="num2" placeholder="두번째수를 입력하세요. "/></td>
+        </tr>
+
+        <tr>
+            <th colspan="2"><input type="submit" value="결과" /></th>
+        </tr>
+    </table>
+</body>
+    <form name="frm" onsubmit="return" chk()">
+        <fieldset>
+            <p>첫번째 수 : <input type="number" name="su1"></p>
+            <p>첫번째 수 : <input type="number" name="su2"></p>
+            <p><input type="submit"></p>
+        </fieldset>
+    </form>
+
+</html>

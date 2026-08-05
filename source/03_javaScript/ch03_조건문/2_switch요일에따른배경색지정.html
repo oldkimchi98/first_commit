@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title>2_switch요일에따른배경색지정.html</title>
+    <style>
+        body{
+            background-color: greenyellow;
+        }
+    </style>
+    <script>
+        document.write('<h1>요일에 따른 배경색 지정</h1>');
+        var week = new Date().getDay(); // 0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토 / getDate()는 날짜
+        switch(week){
+            case 0: document.body.style = 'background-color: red;'; break;
+            case 1: document.body.style = 'background-color: orange;'; break;
+            case 2: document.body.style = 'background-color: yellow;'; break;
+            case 3: document.body.style = 'background-color: yellowgreen;'; break;
+            case 4: document.body.style = 'background-color: blue;'; break;
+            case 5: document.body.style = 'background-color: pink;'; break;
+            case 6: document.body.style = 'background-color: purple;'; break;
+            // rgb(색상코드) 함수는 style에서만 가능.
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
