@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <style>
+        table {
+            width: 280px;
+            height: 100px;
+            margin: 10px auto;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        // 0번째 td부터 6번째 td까지 background-color를 빨주노초파남보 입힌다(window.onload)
+        // tag로 가져오기 => 배열(일반 for문 / for-in / forEach이용불가)
+        // 선택자로 가져오기 => 배열(일반for, for-in, forEach이용)
+        // td 해당 선택자 태그들을 가져오기
+        window.onload = () => {
+            const td = document.querySelectorAll('td');
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'pink', 'purple'];
+            for (let tdcr = 0; tdcr < td.length; tdcr++) {
+                td[tdcr].style.backgroundColor = colors[tdcr];
+
+                td[tdcr].onmouseover = () => {
+                    document.body.style.backgroundColor = colors[tdcr];
+                };
+                td[tdcr].onmouseout = () => {
+                    document.body.style.backgroundColor = 'white';
+                };
+        }
+    };
+        // const bgColorChange = n => {};
+    </script>
+</head>
+
+<body>
+    <h3>quiz : 마우스를 올리면 바탕화면도 해당 색상으로. 마우스를 빼면 다시 흰색 바탕으로</h3>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>
