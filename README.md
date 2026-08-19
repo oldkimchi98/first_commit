@@ -3,7 +3,7 @@ c:/ai/README.md파일 (대문페이지)
 
 
 
-1일 1commit
+1일 1 commit
 
 python
 
