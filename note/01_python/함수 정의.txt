@@ -1,0 +1,8 @@
+06_자연어처리 - ch4_RNN(Recurremt Neural Network; 순환신경망)
+
+from keras_preprocessing.text import Tokenizer 
+from 전처리 관련 모듈 import 텍스트를 토큰화하고 숫자로 변환하는 클래스
+
+fit_on_texts() = 텍스트를 분석해서 단어 사전을 만드는 함수
+fit() = 데이터를 이용해서 어떤 기준이나 패턴을 학습한다
+
