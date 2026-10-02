@@ -1,0 +1,98 @@
+※ 가상환경 만들기(ml-dl-nlp / llm)
+
+현재 존재하는 가상환경 목록 확인
+conda env list
+conda info --envs
+
+가상환경 생성;-n은 --name
+conda create n ml dl nlp python=3.10
+conda create -n ml-dl-nlp python=3.10
+
+생성된 가상환경으로 들어가기
+conda activate ml-dl-nlp
+
+가상환경 나오기
+conda deactivate
+
+가상환경 지우기
+conda env remove name 가상환경이름
+
+
+※ 환경설정 2. 설치 라이브러리
+
+python m pip install --upgrade pip
+
+pip install jupyter numpy==1.23.5 pandas==1.5.3
+matplotlib==3.7.0 seaborn==0.12.2 scikit-learn==1.2.1
+
+pip install tensorflow==2.10.0
+
+
+※ 환경설정 3. 가상환경을 jupyter에서 선택가능한 커널로 등록
+
+가상환경에 들어가서 jupyter 설치
+conda install ipykernel
+
+Jupyter에서 선택가능한 커널로 등록
+python -m ipykernel install --user --name ml-dl-nlp --display-name "ml-dl-nlp(ipykernel)"
+
+Jupyter 커널 목록 확인
+jupyter kernelspec list
+
+Jupter 커널 목록에서 삭제
+jupyter kernelspec remove display이름
+
+Jupyter lab 실행
+Jupyter lab –-notebook-dir=d:\ai\source\05_DeepLearning
+jupyter lab --notebook-dir="c:\ai\source\05_DeepLearning"
+
+
+※ 딥러닝에서 엑셀데이터 불러오기
+pip install openpyxl
+
+※ mnist 중간에 설치한 것
+pip install opencv-python==4.8.1.78
+
+※ 자연어처리에 설치한 것
+pip install nltk==3.7       # 영어권 자연어처리
+
+(0.6.0) 한글 자연어 전처리 - java 필요
+pip install konlpy
+
+(1.3.7) 한글 자연어 전처리 - C++ 필요
+pip install python-mecab-ko 
+
+(1.9.6) 워드 클라우드
+pip install wordcloud
+
+(4.4.0) 워드임베딩 - 단어간 거리 계산
+pip install gensim
+
+.env 파일을 사용할 수 있게 해주는 라이브러리
+pip install python-dotenv
+
+.env 파일 사용할 수 있게 해주지만, 비추 (주피터환경에서 안될 가능성 있음)
+pip install python-decouple
+
+(1.1.2) 자연어 처리 - 충돌 확률이 적고 가벼움
+pip install apyori
+
+통계패키지 중 시계열
+pip install statsmodels==0.13.5
+
+(1.4.0) facebook에서 개발한 시계열 분석,예측
+pip install prophet
+
+(선택사항) prophet에서 경고 / 경고 무시해도 됨
+pip install plotly
+
+
+※ 머신러닝
+
+(0.4.5) 데이터 가속화
+pip install dataprep
+
+
+
+
+
