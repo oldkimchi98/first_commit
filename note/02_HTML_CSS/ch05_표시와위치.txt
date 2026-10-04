@@ -1,0 +1,27 @@
+﻿5장. 표시와 위치
+
+1절. display
+block : 블록 형태
+inline : 문장 안의 인라인 형태
+inline-block : 가로 배치하면서 너비·높이 지정
+none : 표시하지 않고 배치 공간도 제거
+
+2절. 숨김과 투명도
+visibility:hidden : 숨기되 배치 공간 유지
+opacity : 투명도 (0은 투명, 1은 불투명)
+
+3절. position
+static : 기본 배치
+relative : 원래 위치를 기준으로 이동, 기존 공간 유지
+absolute : 일반 배치에서 빠져 기준 영역에 배치
+fixed : 보통 화면을 기준으로 고정
+top, right, bottom, left : 기준점과의 거리
+z-index : 겹침 순서 (쌓임 맥락 안에서 비교)
+
+4절. float
+float:left, right : 요소를 띄우고 주변 내용이 흐르게 배치
+clear:both : 앞의 양쪽 float보다 아래에 배치
+overflow:hidden : 넘친 내용을 숨김
+
+cf. absolute는 보통 position이 지정된 가까운 조상이 기준.
+수업은 float 배치를 실습했고 프로젝트는 Flex·Grid도 사용.

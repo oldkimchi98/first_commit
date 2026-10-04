@@ -1,0 +1,29 @@
+﻿12장. fetch와 비동기 처리
+
+1절. 요청과 응답
+fetch(주소,옵션) : HTTP 요청, Promise 반환
+then() : 성공 결과의 처리 연결
+catch() : 실패 처리
+response.ok : HTTP 성공 상태 여부
+response.status : HTTP 상태 코드
+response.text() : 응답 본문을 문자열로 읽기
+URLSearchParams : 쿼리 문자열 생성
+
+2절. 처리 순서
+클릭·keyup → 입력값 확인 → fetch 요청
+→ 응답 상태 확인 → 본문 읽기 → 결과 영역 변경
+
+예)
+fetch("midConfirmNonExists.html")
+    .then(response => {
+        if(!response.ok) throw new Error("응답 오류");
+        return response.text();
+    })
+    .then(text => {
+        document.querySelector("#idConfirmResult").textContent = text;
+    })
+    .catch(error => alert(error.message));
+
+cf. 404·500 응답도 fetch 자체는 성공할 수 있어 ok 확인.
+수업은 고정 HTML 응답을 읽는 비동기 처리 예제.
+실제 아이디 중복 여부는 서버·DB 조회가 필요.

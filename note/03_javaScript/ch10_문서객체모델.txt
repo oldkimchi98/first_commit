@@ -1,0 +1,31 @@
+﻿10장. 문서 객체 모델 (DOM)
+
+1절. 요소 찾기
+getElementById() : id로 하나 찾기
+getElementsByClassName() : class로 목록 찾기
+getElementsByName() : name으로 목록 찾기
+getElementsByTagName() : 태그 이름으로 목록 찾기
+querySelector() : CSS 선택자로 첫 요소 찾기
+querySelectorAll() : CSS 선택자로 요소 목록 찾기
+
+2절. 요소 생성·제거
+createElement() : 태그 요소 생성
+createTextNode() : 텍스트 노드 생성
+appendChild() : 자식 노드 추가
+removeChild() : 자식 노드 제거
+
+3절. 내용 변경
+innerHTML : 내부 HTML 읽기·변경
+textContent : 텍스트 읽기·변경
+value : 입력 요소의 현재 값
+style.color : 글자색 변경
+setAttribute() : 속성 지정
+
+수업 예)
+제목을 찾아 내용·색상 변경
+새 요소 추가와 제거
+입력창 값을 부모 창과 자식 창 사이에 전달
+
+cf. querySelectorAll() 결과는 배열이 아니라 NodeList.
+찾는 요소가 없으면 querySelector()는 null.
+사용자 입력을 단순 표시할 때는 textContent 사용.

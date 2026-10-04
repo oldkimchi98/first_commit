@@ -1,0 +1,30 @@
+﻿11장. 이벤트와 입력 검사
+
+1절. 등록 방식
+onclick="함수()" : 인라인 이벤트
+element.onclick = 함수 : 기본 이벤트
+addEventListener("click",함수) : 표준 이벤트
+DOMContentLoaded : DOM 구성이 끝난 시점
+load : 페이지와 관련 리소스 로딩 완료
+
+2절. 주요 이벤트
+click : 클릭
+keyup : 키를 놓음
+input : 사용자 입력값 변경
+change : 선택·입력 변경이 확정됨
+submit : 양식 제출
+
+3절. 제어
+preventDefault() : 제출·링크 이동 등의 기본 동작 방지
+focus() : 입력 요소로 초점 이동
+click() : 클릭 동작 호출
+removeEventListener() : 같은 함수 참조로 등록 해제
+
+수업 예)
+비밀번호 공백·불일치 검사 후 제출 제한
+클릭 횟수 누적
+클릭한 제목의 내용과 색상 변경
+
+cf. addEventListener에서 return false만으로 제출이 막히지 않음.
+일반 리스너 함수의 this는 등록 대상.
+화살표 함수에서는 event.currentTarget 등으로 대상 확인.

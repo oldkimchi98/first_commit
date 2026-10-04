@@ -1,0 +1,29 @@
+﻿5장. 함수와 매개변수
+
+1절. 함수 작성
+function sum(a,b){ return a+b; } : 함수 선언
+const sum = function(a,b){ return a+b; }; : 함수 표현식
+const sum = (a,b)=>a+b; : 화살표 함수
+
+2절. 입력과 결과
+매개변수 : 함수가 받는 값의 이름
+인수 : 호출할 때 전달하는 실제 값
+return : 결과 반환과 함수 종료
+기본값 : 인수가 생략되거나 undefined일 때 사용
+...args : 여러 인수를 배열로 받는 나머지 매개변수
+
+예)
+function sumAll(...nums){
+    let total = 0;
+    nums.forEach(n => total += n);
+    return total;
+}
+
+3절. 범위
+지역변수 : 함수·블록 안에서 사용하는 변수
+내부함수 : 함수 안에 작성한 함수
+함수 선언 : 일반적인 선언은 선언 위치 앞에서 호출 가능
+함수 표현식 : 변수 초기화 이후 호출
+
+cf. return이 없으면 결과는 undefined.
+화살표 함수는 일반 함수와 this 처리 방식이 다름.

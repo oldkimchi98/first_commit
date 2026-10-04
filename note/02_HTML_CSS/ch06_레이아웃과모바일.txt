@@ -1,0 +1,31 @@
+﻿6~7장. 레이아웃과 모바일 설정
+
+1절. 쇼핑몰 화면 구역
+gnb : 상단 공통 메뉴
+logo : 로고
+hitmenu, lnb : 보조 메뉴와 주요 메뉴
+slide_banner, side_banner : 배너 영역
+hit_product, md_product : 상품 목록
+footer : 회사 정보와 저작권
+
+2절. 수업에서 사용한 배치
+width:1000px : 공통 콘텐츠 너비
+margin:0 auto : 고정 너비 영역의 가로 가운데 배치
+float:left : 메뉴와 상품을 가로로 배치
+overflow:hidden : 수업 예제에서 float 부모 높이 확보
+box-sizing:border-box : 테두리를 너비에 포함
+clear:both : 하단 구역을 float 아래로 배치
+
+3절. 모바일 문서 설정
+meta name="viewport" : 모바일 표시 영역 설정
+width=device-width : 표시 영역을 기기 너비에 맞춤
+initial-scale=1 : 초기 배율 지정
+
+4절. 프로젝트 추가 사용
+display:flex : 메뉴·버튼의 가로 배치
+display:grid : 카드·지표의 열 배치
+gap : 요소 사이 간격
+@media : 화면 너비 조건에 따른 스타일 변경
+
+cf. 모바일 수업 파일은 viewport와 초기화 틀이 중심.
+고정 너비만 사용하면 작은 화면에서 가로 넘침을 확인해야 함.

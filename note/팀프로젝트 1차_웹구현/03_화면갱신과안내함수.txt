@@ -1,0 +1,30 @@
+﻿팀 프로젝트 - 화면 갱신과 안내 함수
+
+1절. 화면별 함수
+renderTrend() : 모델1 페이지1의 매출 추이
+renderOverview() : 모델1 페이지2의 위험 요약
+renderComparison() : 모델1 페이지3의 비교표
+renderRanking() : 모델2 페이지1의 추천 순위
+renderRankingDetail() : 선택한 추천 상권의 상세
+renderRecommendations() : 모델2 페이지2의 추천 카드
+renderRiskComparison() : 모델2 페이지3의 위험 비교
+renderPage() : 현재 페이지에 맞는 갱신 함수 실행
+
+2절. 차트와 선택
+salesChart() : 분기별 매출을 SVG 그래프로 생성
+updateProbabilities() : 위험 확률을 숫자·막대에 반영
+selectCard() : 선택 상권과 카드 표시 변경
+showTabPanel() : 선택한 탭의 내용 표시
+MarketMaps.render() : 지도 그림 또는 준비 상태 표시
+
+3절. 안내와 버튼
+dialog() : 안내 팝업 생성
+toast() : 잠시 나타나는 알림
+evidenceHTML(), scoreHTML() : 지표·점수 구성 내용 생성
+pendingChart(), pendingTable() : 없는 데이터의 차트·표 틀
+importanceHTML(), historyHTML() : 준비 상태의 비교표
+configureActions() : 버튼과 입력 요소의 동작 연결
+doAction() : 동작 이름에 따라 기능 실행
+
+cf. HTML 틀 → 데이터 선택 → 갱신 함수 → 화면 표시.
+가중치 조절 결과는 예시 지표의 계산이며 실제 모델 결과와 구분.

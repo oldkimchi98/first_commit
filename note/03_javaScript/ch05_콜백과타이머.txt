@@ -1,0 +1,27 @@
+﻿5장. 콜백 함수와 타이머
+
+1절. 콜백
+콜백 함수 : 다른 함수에 인수로 전달하는 함수
+전달받은 함수가 필요한 시점에 콜백을 실행
+
+예)
+function callTenTimes(callback){
+    for(let i=0; i<10; i++){
+        callback();
+    }
+}
+callTenTimes(() => console.log("실행"));
+
+2절. 타이머
+setTimeout(함수, 시간) : 시간이 지난 후 한 번 실행 예약
+setInterval(함수, 시간) : 일정 간격으로 실행 예약
+clearTimeout(id) : 한 번 실행 예약 취소
+clearInterval(id) : 반복 실행 예약 취소
+시간 단위 : 밀리초 (1000ms = 1초)
+
+예)
+const timer = setTimeout(() => alert("안내"), 1000);
+
+cf. 모든 콜백이 비동기로 실행되는 것은 아님.
+타이머는 정확한 실행 시각을 보장하지 않음.
+함수를 전달할 때 callback과 callback() 구분.

@@ -1,0 +1,29 @@
+﻿4장. 반복문
+
+1절. 반복 방식
+for(초기값; 조건; 증감) : 횟수·범위가 정해진 반복
+while(조건) : 참인 동안 반복
+do { 실행 } while(조건) : 먼저 실행한 후 조건 확인
+
+2절. 배열 반복
+for(let i=0; i<arr.length; i++) : 인덱스로 접근
+for(const value of arr) : 배열의 값 순회
+for(const key in obj) : 객체의 열거 가능한 속성 이름 순회
+arr.forEach((value, index)=>{}) : 항목마다 함수 실행
+
+3절. 반복 제어
+break : 반복 탈출
+continue : 현재 회차를 건너뛰고 다음 회차
+
+예)
+let sum = 0;
+for(let i=1; i<=5; i++){
+    sum += i;
+}
+
+수업 예)
+누적 합, 배열 출력, 구구단, 중첩 for문
+
+cf. 배열 값 출력에는 for...of와 forEach 구분해서 사용.
+일반 객체는 기본적으로 for...of의 대상이 아님.
+forEach는 break로 중단할 수 없음.

@@ -1,0 +1,35 @@
+﻿3장. 입력 양식
+
+1절. 양식 태그
+form : 사용자 입력을 제출하는 양식
+input : 입력창과 선택 요소
+label : 입력 요소의 이름 (for와 id 연결)
+select, option : 선택 목록과 항목
+textarea : 여러 줄 입력
+fieldset, legend : 입력 요소 묶음과 제목
+
+2절. input의 type
+text : 한 줄 입력
+password : 입력 문자를 가려 표시
+tel, email : 전화번호·이메일 입력
+number : 숫자 입력
+file : 파일 선택
+radio : 같은 name의 그룹에서 하나 선택
+checkbox : 항목별 선택
+date : 날짜 입력
+hidden : 화면에 없는 제출값
+submit : 제출 / reset : 초기값 복원
+button : 일반 버튼
+
+3절. 주요 속성
+action : 제출 주소
+method : GET 또는 POST
+name : 제출 데이터의 항목 이름
+value : 입력 유형에 따른 초기값·제출값
+checked, selected : 기본 선택
+multiple : 여러 항목 선택
+rows, cols : textarea의 표시 크기
+
+cf. GET은 입력값이 URL에 포함될 수 있음.
+POST도 자체 암호화는 아니므로 HTTPS와 구분.
+password는 화면의 문자만 가려 표시.
