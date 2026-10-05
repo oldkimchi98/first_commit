@@ -1,17 +1,29 @@
-1) 데이터 준비
-2) 미적속성설정 - sns.set(style='white',
-				context='notebook', 배율
-				palette='Dark2'...,
-				rc={})
-3) 그래프 함수
-  ⓐ 관계형 그래프 : scatterplot, lineplot => relplot(서브플롯)
-  ⓑ 범주형 그래프 : stripplot, swarmplot(산점도),
-			        barplot, pointplot,
-				countplot,
-				boxplot, violinplot, boxenplot -> catplot(서브플롯)
-  ⓒ 쌍관계 그래프 pairplot
-  ⓓ 밀도그래프: histplot, displot(rug)
-  ⓔ 회귀그래프: regplot => lmplot(서브플롯)
+﻿Seaborn 그래프 선택
 
-4) 다중 그래프를 위한
-FacetGrid
+
+1  변수의 관계
+
+scatterplot() → 산점도, lineplot() → 선 그래프
+relplot() → 관계 그래프를 여러 패널로 구성한다.
+pairplot() → 여러 변수 쌍의 관계를 한 번에 확인한다.
+
+
+2  범주 비교
+
+stripplot(), swarmplot() → 범주별 개별 관측값
+barplot(), pointplot() → 범주별 요약값 비교
+countplot() → 범주별 개수
+boxplot(), violinplot(), boxenplot() → 범주별 분포
+catplot() → 범주 그래프를 여러 패널로 구성한다.
+
+
+3  분포와 회귀
+
+histplot() → 값의 빈도 분포
+displot() → 분포 그래프를 여러 패널로 구성한다.
+regplot() → 변수 관계와 회귀선, lmplot() → 회귀 그래프를 여러 패널로 구성
+
+
+4  여러 그래프 배치
+
+FacetGrid → 조건별로 나눈 여러 그래프를 같은 구조로 배치한다.

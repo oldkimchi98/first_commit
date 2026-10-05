@@ -1,32 +1,22 @@
-﻿2장. 이미지와 오디오
+﻿2장  이미지와 오디오
 
-1절. 이미지
-img : 이미지 삽입
-src : 이미지 파일 경로
-alt : 이미지의 의미를 대신하는 설명
-width : 이미지 너비
-height : 이미지 높이
 
-예)
-<img src="images/logo.png" alt="회사 로고" width="100">
+1절  이미지
 
-2절. 오디오
-audio : 오디오 삽입
-source : 사용할 미디어 파일과 형식 지정
-src : 오디오 파일 경로
-controls : 재생 도구 표시
-loop : 반복 재생
-autoplay : 자동 재생 요청
-preload : 미리 불러올 데이터에 관한 힌트
+img → 이미지 삽입
+src → 이미지 파일 경로
+alt → 이미지의 의미를 대신하는 설명
+width와 height → 너비와 높이
+원본 비율과 다르게 크기를 지정하면 이미지가 변형된다.
 
-preload="none" : 미리 불러오지 않도록 요청
-preload="metadata" : 재생 시간 등의 정보 위주
-preload="auto" : 필요에 따라 전체 데이터 로딩 허용
 
-예)
-<audio src="sound/test.mp3" controls></audio>
+2절  오디오
 
-cf. src 경로·확장자 확인.
-가로와 세로를 원본 비율과 다르게 지정하면 이미지가 변형됨.
-alt는 이미지 오류 시뿐 아니라 화면 읽기 도구에서도 사용.
-자동 재생은 브라우저 정책에 따라 제한될 수 있음.
+audio → 오디오 삽입
+source → 미디어 파일과 형식 지정
+controls → 재생 도구 표시
+loop → 반복 재생
+autoplay → 자동 재생 요청
+preload → 미리 불러올 데이터 범위에 관한 힌트
+none은 미리 불러오지 않음, metadata는 정보 위주, auto는 전체 데이터 로딩을 허용한다.
+파일 경로와 확장자를 확인한다. 자동 재생은 브라우저에서 제한될 수 있다.

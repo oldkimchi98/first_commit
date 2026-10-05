@@ -1,28 +1,31 @@
-﻿5장. 글자와 배경
+﻿5장  글자와 배경
 
-1절. 글자
-font-family : 글꼴 (대체 글꼴을 순서대로 지정)
-font-size : 크기
-font-weight : 굵기
-font-style : normal, italic 등
-color : 글자색
-text-align : left, center, right, justify
-text-decoration : 밑줄 등 장식
-line-height : 한 줄의 높이
 
-2절. 배경
-background-color : 배경색
-background-image : 배경 이미지
-background-repeat : 반복 방식
-background-position : 이미지 위치
-background-size : 이미지 표시 크기
-url() : 이미지·글꼴 등의 경로 지정
-rgba() : 빨강·초록·파랑·알파값으로 색상 지정
+1절  글자
 
-3절. 글꼴 연결
-@font-face : 글꼴 파일 등록
-@import : 외부 CSS 가져오기
+font-family → 글꼴과 대체 글꼴
+font-size → 글자 크기
+font-weight → 굵기
+font-style → 기울임 등 글자 스타일
+color → 글자색
+text-align → 글자 정렬
+text-decoration → 밑줄 등 장식
+line-height → 한 줄의 높이
 
-cf. CSS 파일의 url() 상대 경로는 그 CSS 파일 기준.
-글꼴이 없거나 로딩에 실패하면 뒤의 대체 글꼴 사용.
-height와 line-height를 같게 하는 정렬은 한 줄 글자에 적합.
+
+2절  배경
+
+background-color → 배경색
+background-image → 배경 이미지
+background-repeat → 반복 방식
+background-position → 이미지 위치
+background-size → 이미지 표시 크기
+url() → 파일 경로 지정
+rgba() → 색상과 투명도 지정
+
+
+3절  글꼴 연결
+
+@font-face → 글꼴 파일 등록
+@import → 외부 CSS 가져오기
+상대 경로는 CSS 파일 위치가 기준이다. 글꼴 로딩에 실패하면 뒤의 대체 글꼴을 사용한다.

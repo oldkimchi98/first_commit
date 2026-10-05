@@ -1,25 +1,24 @@
-﻿8장. 문자열 메서드
+﻿8장  문자열 메서드
 
-1절. 길이와 위치
-length : 문자열 길이
-indexOf(문자) : 처음 나타난 위치, 없으면 -1
-lastIndexOf(문자) : 마지막으로 나타난 위치
-substring(시작,끝) : 시작부터 끝 바로 앞까지 추출
 
-2절. 변환
-trim() : 앞뒤 공백 제거
-toUpperCase() : 대문자로 변환
-toLowerCase() : 소문자로 변환
-replace(찾을값,바꿀값) : 찾은 부분 변경
-replaceAll(찾을값,바꿀값) : 일치하는 부분 모두 변경
-concat() : 문자열 연결
+1절  길이와 위치
 
-예)
-const text = "  abc @ ABC  ";
-text.trim();             // "abc @ ABC"
-text.replaceAll("@","#");// "  abc # ABC  "
-text.substring(2,5);      // "abc"
+length → 문자열 길이
+indexOf() → 처음 나타난 위치. 없으면 -1
+lastIndexOf() → 마지막으로 나타난 위치
+substring() → 지정 범위의 문자열 추출. 끝 위치는 제외
 
-cf. 문자열은 수정된 새 값을 반환. 원본을 바꾸려면 재할당.
-substring의 끝 위치는 포함되지 않음.
-수업의 substr()는 오래된 기능. 새 작성은 substring·slice 사용.
+
+2절  변환
+
+trim() → 앞뒤 공백 제거
+toUpperCase()와 toLowerCase() → 대문자와 소문자로 변환
+replace() → 찾은 부분 변경
+replaceAll() → 일치하는 부분 모두 변경
+concat() → 문자열 연결
+
+
+3절  핵심 주의점
+
+문자열을 변환하는 메서드는 새 문자열을 반환한다. 원본 변수의 값을 바꾸려면 재할당한다.
+substring()의 끝 위치는 결과에 포함되지 않는다.

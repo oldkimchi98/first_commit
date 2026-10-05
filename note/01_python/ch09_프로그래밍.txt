@@ -1,47 +1,45 @@
-9장 input / output 프로그래밍
+﻿파일 입출력
 
-with           → 파일을 안전하게 열고 자동으로 닫아준다.
-encoding    → 문자 인코딩
-r                → 읽기
-w		 → 쓰기
-a		 → 추가
-t		 → 텍스트
-b		 → 바이너리
-rt		 → Read Text
-rb		 → Read Binary
-wt		 → Write Text
-wb		 → Write Binary
-at		 → Append Text
-ab		 → Append Binary
 
-1절. txt파일 io
-- with open (파일상대경로 | 파일절대경로, 'r | w | a | rt | wt | at', encoding) as f:
-	list변수 = f.readlines() / 문자변수 = f.read()
-	f.write(저장할 문자열) / f.writelines(문자list)
+1  공통 흐름
 
-2절. 피클(pkl, pickle, data) 파일 io
-- with open(파일경로, 'rb|wb'
-	객체변수 = pickle.load(f)
-	pickle.dump(변수, f)
+파일 열기 → 읽기 또는 쓰기 → 닫기
+open() → 경로와 모드를 지정해 파일을 연다.
+with → 사용이 끝나면 파일을 자동으로 닫는다.
+encoding → 문자를 읽고 저장할 인코딩
+r → 읽기, w → 새로 쓰기, a → 끝에 추가
+t → 텍스트 모드, b → 바이너리 모드
 
-3절. CSV파일 io
-- with open(파일경로, 'r | w | a | rt | wt | at', encoding) as f:
-	reader = csv.reader(f); result = list(reader)
-	write = csv.write(f); writer.writerows(2차원list)
 
-	dic_reader = csv.DictReader(f); 딕셔너리list = list(dic_reader)
-	dic_writer = csv.DictWriter(f); dic_wrier.writerows(딕셔너리list)
+2  텍스트
 
-4절. JSON파일 io
-- with open(파일경로, 'r | w | rt | wt | a | at', encoding) as f:
-	딕셔너리list - json.load(f)
-	json.dump(딕셔너리list, f, ensure_ascii=False, indent)
+read() → 전체 내용 읽기, readlines() → 줄 단위 목록으로 읽기
+write() → 문자열 쓰기, writelines() → 문자열 목록 쓰기
 
-	객체list = json.load(f, object_hook=딕셔너리를 객체로 return하는 함수명)
-	json.dump(객체list, f, default=클래스명. 객체를 딕셔너리로 return함수명)
 
-5절. h5/hdf5 파일 io
-- import pandas as pd
-	데이터프레임 변수 = pd.read_hdf(파일경로, key)
-	데이터프레임 변수.to_hdf(파일경로, key) = 2차원
+3  피클
 
+pickle → 파이썬 객체를 파일에 저장하고 다시 불러오는 형식. 바이너리 모드를 사용한다.
+pickle.load() → 객체 읽기, pickle.dump() → 객체 저장
+
+
+4  CSV
+
+CSV → 행과 열로 구성된 데이터를 문자로 저장하는 형식
+csv.reader(), csv.writer() → 행 단위 읽기와 쓰기
+csv.DictReader(), csv.DictWriter() → 열 이름을 키로 사용해 읽기와 쓰기
+writerows() → 여러 행을 저장한다.
+
+
+5  JSON
+
+JSON → 키와 값, 목록으로 구조화한 데이터를 저장하는 형식
+json.load() → 읽기, json.dump() → 저장
+ensure_ascii → 문자 이스케이프 여부, indent → 들여쓰기
+object_hook → 읽은 딕셔너리를 객체로 변환, default → 저장할 객체를 변환
+
+
+6  HDF5
+
+HDF5 → 데이터를 계층 구조로 저장하는 형식. key로 저장한 데이터를 구분한다.
+read_hdf() → 데이터프레임 읽기, to_hdf() → 저장

@@ -1,136 +1,27 @@
-참고사항
-
-부트스트랩 사이트 (css 양식)
-https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
-
-테마를 만들어주는 곳도 있음
+﻿Flask  GET 요청과 입력 검증
 
 
+1절  요청 처리 흐름
 
-전체흐름
-
-사용자 입력
-  ↓ GET 요청
-Flask에서 request.args로 받기
-  ↓
-Pydantic 모델로 형식 검증
-  ├─ 성공 → 결과 페이지
-  └─ 실패 → 오류 페이지
+폼 입력 → GET 요청 → request.args → Pydantic 검증 → 결과 화면 또는 오류 화면
+GET → 요청 주소의 쿼리스트링으로 입력값을 전달하는 방식
+쿼리스트링 → URL에 붙는 항목 이름과 값. HTML 폼의 name이 서버에서 값을 찾는 이름이 된다.
+비밀번호처럼 민감한 값을 GET 주소에 담지 않는다.
 
 
-1. GET 요청과 쿼리스트링
+2절  입력값 검증
 
-<form action="/user" method="get">
-    <input name="name">
-</form>
-
-전송하면 주소가 /user?name=홍길동 처럼 만들어짐
-Flask에서는 request.args로 받음.
-
-HTML의 name="name"
-          ↓
-request.args.get("name")
+Pydantic → 입력값이 정해진 자료형과 조건을 만족하는지 검사하는 도구
+BaseModel → 데이터 규칙을 정의할 때 사용하는 기본 클래스
+Field() → 길이, 범위, 기본값 같은 세부 조건 지정
+검증 성공 → 데이터 객체를 HTML 템플릿에 전달
+검증 실패 → 예외를 처리하고 오류 메시지 전달
 
 
-2. 회원가입 요청 구조
+3절  필수 함수
 
-/join?name=길동&id=123&pw=aa&addr=서울
-join.html에서 네 개의 값을 GET으로 보냄.
-
-Flask에서는 각각 꺼냄
-↓
-name = request.args.get("name")
-id = request.args.get("id")
-pw = request.args.get("pw")
-addr = request.args.get("addr")
-↓
-Member 객체를 만들고 입력값을 검사함.
-member = Member(name=name, id=id, pw=pw, addr=addr)
-
-
-3. Pydantic 입력 검증
-
-models.py의 Member는 회원 데이터의 규칙표입니다.
-↓
-class Member(BaseModel):
-    name: str = Field(min_length=2, max_length=10)
-    id: int = Field(gt=0)
-    pw: str
-    addr: str = Field(default="서울")
-↓
-name : 2~10글자
-id : 숫자이며 0보다 커야함
-pw : 문자열
-addr : 입력값이 없으면 서울 출력
-
-
-4. 검증 성공과 실패 처리
-
-성공시
-↓
-검증이 끝난 member를 결과 HTML에 전송.
-return render_template("1_get/result.html", member=member)
-↓
-HTML에서는 객체의 속성을 사용함.
-↓
-{{ member.name }}
-{{ member.id }}
-{{ member.addr }}
-
-실패시 : 검증 시 오류가 나면 except가 실행됨.
-↓
-except Exception:
-    return render_template(
-        "error_page.html",
-        error="잘못된 입력"
-    ), 500
-↓
-오류 메시지를 받은 HTML은 경고창을 표시하고 이전 페이지로 back.
-
-
-5. abort와 오류 처리기
-
-이름이 전달되지않으면 일부로 404 오류를 발생시킴.
-abort(404)
-↓
-발생한 404는 다음 함수가 받으며, 공통 오류 페이지를 보여줌.
-↓
-@app.errorhandler(404)
-def errorhandler(error):
-    return render_template("error_page.html"), 404
-↓
-구조는?
-
-abort(404)
-   ↓
-@app.errorhandler(404)
-   ↓
-error_page.html
-
-
-핵심내용
-
-폼의 name
-→ request.args.get()
-→ Pydantic 검증
-→ render_template()
-→ 성공 페이지 또는 오류 페이지
-
-주의사항
-실제 회원가입에서는 비밀번호가 주소창에 노출되는 GET을 사용하면 안 됩니다. 
-이번 코드는 GET 처리 원리를 배우는 예제이며, 실제 서비스에서는 비밀번호 같은 정보는 보통 POST로 전송합니다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+request.args.get() → GET 요청에서 항목 이름에 해당하는 값 읽기
+render_template() → HTML 템플릿에 데이터를 넣어 응답 생성
+abort() → 지정한 상태 코드의 오류 발생
+app.errorhandler() → 오류를 처리할 함수 연결
+404 → 요청한 대상을 찾을 수 없음을 나타내는 상태 코드

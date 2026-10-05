@@ -1,27 +1,21 @@
-Oracle SQL 기초
-SELECT문 DML(데이터 조작 언어)질의어
+﻿Oracle SQL 데이터 조회
 
-SELECT  :  지정할 열을 선택
-*  :  테이블의 모든 column 출력
-alias  :  해당 column에 대한 다른 이름 부여
-DISTINCT	 : 중복 행 제거 옵션
-FROM  :  원하는 데이터가 저장된 테이블 명을 기술
-WHERE  :  조회되는 행을 제한하기 위한 조건 추가
-condition  :  column, 표현식, 상수 및 비교연산자
-ORDER BY  :  정렬을 위한 옵션 (ASC : 오름차순 기본값, DECS 내림차순)
 
-1. SELECT문 기본 구조
-SELECT *
-FROM tab;
+1  조회 흐름
 
-2. 현재 계정이 가지고 있는 테이블 정보
-SELECT *
-FROM emp;
+테이블 지정 → 조건으로 행 선택 → 필요한 열 선택 → 정렬
+SELECT → 조회할 열을 지정한다.
+FROM → 데이터를 가져올 테이블을 지정한다.
+WHERE → 조건에 맞는 행만 가져온다.
+ORDER BY → 조회 결과를 정렬한다.
 
-3. EMP테이블의 모든 정보(모든 열, 모든 행)
-SELECT *
-FROM dept
 
-4. DEPT테이블의 모든 정보
-SELECT *
-FROM salgrade
+2  핵심 용어
+
+열 column → 하나의 항목, 행 → 한 건의 데이터
+* → 모든 열 선택
+alias → 조회 결과의 열 등에 붙이는 별칭
+DISTINCT → 선택한 열의 값이 같은 중복 행을 제거한다.
+condition → 열, 표현식, 상수, 비교 연산자로 만든 조건
+ASC → 오름차순이며 기본 정렬 방향
+DESC → 내림차순

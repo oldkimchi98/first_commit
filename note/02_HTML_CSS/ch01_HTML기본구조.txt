@@ -1,30 +1,27 @@
-﻿1장. HTML 기본 구조
+﻿1장  HTML 기본 구조
 
-1절. 웹 문서의 역할
-HTML : 제목·문단·입력창 등 내용과 구조
-CSS : 색상·글꼴·여백·배치
-JavaScript : 입력 확인·버튼 동작 등 처리
 
-2절. 문서 태그
-<!DOCTYPE html> : 표준 모드로 처리하도록 선언
-html : 문서 전체
-head : 제목, 문자 인코딩, 파일 연결 정보
-body : 화면에 표시할 내용
-title : 브라우저 탭의 문서 제목
-meta charset="UTF-8" : 문자 인코딩 지정
-html lang="ko" : 문서 언어를 한국어로 지정
+1절  웹 문서의 역할
 
-3절. 외부 파일 연결
-link : CSS 파일 연결
-    <link rel="stylesheet" href="style.css">
-script : JavaScript 파일 연결
-    <script src="app.js" defer></script>
-style : 문서 내부에 CSS 작성
+HTML → 내용과 구조
+CSS → 색상과 배치
+JavaScript → 사용자 입력과 화면 동작 처리
 
-4절. 기본 작성
-<태그 속성="값">내용</태그>
-<!-- 주석 --> : HTML 메모
-img, br, input : 종료 태그가 없는 빈 요소
 
-cf. 여는 순서와 반대로 닫기.
-HTML 파일 위치를 기준으로 연결 경로 확인.
+2절  문서 구조
+
+DOCTYPE → 문서를 표준 모드로 처리하도록 선언
+html → 문서 전체
+head → 제목과 문자 인코딩 등 문서 정보
+body → 화면에 표시할 내용
+title → 브라우저 탭의 제목
+meta의 charset → 문자 인코딩 지정
+html의 lang → 문서 언어 지정
+
+
+3절  파일 연결
+
+link → 외부 CSS 연결
+script → JavaScript 작성 또는 외부 파일 연결
+style → 문서 안에 CSS 작성
+태그는 여는 순서와 반대로 닫는다. 연결 경로는 파일 위치를 기준으로 확인한다.

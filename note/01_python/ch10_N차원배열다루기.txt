@@ -1,55 +1,47 @@
-Numpy 패키지의 함수와 속성
+﻿NumPy 배열의 함수와 속성
 
-- 배열 속성
-	dtype : 요소들의 타입 (타입변경시 as type)
-	itemsize : 요소의 byte 사이즈
-	ndim : 차원수(축수)
-	size : 요소 갯수
-	shape : 배열의 구조 (튜플 = tup)
 
-- 배열 생성 함수
-	np.array(obj, dtype, copy=T/F)
-	np.array(obj, dtype, copy=T/F).reshape(행수,열수)
+1  배열 확인
 
-	np.random.random( tup ) : 0부터 1미만의 균등분포를 갖은 tup 사이즈 랜덤값 n차원 배열
-	np.random.uniform(low=0, high=1.0, size=tup) : low부터 high미만까지 균등분포를 갖는 랜덤값 n차원배열
-	np.random.normal(loc=0.0, scale=1.0, size=tup) : 평균loc, 표준편차scale을 갖는 정규분포 n차원 배열 랜덤값
-	np.random.rand(n) : 균등분포의 1차원 0~1미만 난수 배열 발생(난수가 n개) 1차원 배열
-	np.random.randn(n) : 표준정규분포(평균0, 표준편차가1인 정규분포)의 1차원 난수 배열 발생(난수 n개)
+dtype → 자료형, itemsize → 요소 하나의 바이트 크기
+ndim → 차원 수, size → 전체 요소 수, shape → 축별 크기
+astype() → 요소의 자료형을 변환한다.
 
-	np.arange(from, to, by, dtype) : from~to 앞까지 by씩 증감하는 1차원 배열
-	np.linspace(from, to, num) : from~to 까지 같은 간격의 num개 수를 1차원 배열
 
-- 배열 차원 변경
-	reshape() : -1 사용하면 자동 계산
-	resize() : -1 불가
-	T, transpose() : 전치행렬
-	flattern(), ravel() : 1차원 변경
+2  배열 생성
 
-- 배열연산
-	요소별연산, 행렬곱(@, 단위행렬), 집계함수(sum, min, max, mean, var, std)
-	범용함수(np.add, np.sqrt,...), 브로드케스팅
+array() → 데이터로 배열 생성
+arange() → 지정 간격으로 값 생성, linspace() → 지정 개수만큼 같은 간격으로 값 생성
+균등분포 → 정한 범위에서 값이 고르게 나오는 분포
+random(), uniform(), rand() → 균등분포 난수 생성
+정규분포 → 평균을 중심으로 모이고 표준편차에 따라 퍼지는 분포
+normal() → 정규분포 난수, randn() → 평균 0과 표준편차 1인 표준정규분포 난수
 
-- 배열 합치기
-	np.vstack(tup)
-	np.hstack(tup)
-	np.dstack(tup) : 마지막 축(열)끼리 합침
-	np.concatenate(tup,axis) axis축으로 합침
 
-	np.column_stack(tup) : 1차원배열을 열단위로 배열하여 2차원 배열로 합침
-	np.row_stack(tup) : 행단위로 합침
+3  모양 변경
 
-	np.stack(tup, axis)
-	
-	np.r_[a, b, c] row 단위로 쌓음 (한행으로 합치기)
-	np.c_[a, b, c] 컬럼으로 쌓아서 합치기(1차원을 2차원으로)
+reshape() → 요소 수를 유지하며 모양 변경. 한 축에 -1을 쓰면 크기를 자동 계산한다.
+resize() → 원본 배열의 크기 변경. -1로 자동 계산할 수 없다.
+T, transpose() → 축의 순서 변경. 2차원에서는 행과 열을 바꾼다.
+flatten(), ravel() → 1차원으로 펼치기
+newaxis, expand_dims() → 축 추가
 
-	1차원배열[ :, np.newaxis ] : 1차원 배열을 2차원으로 쌓아줌(축 증가)
-		reshape(-1,1) / np.expand_dims(a, axis=1)
 
-- 배열 분할하기
-	vsplit(ary, indices_or_sections) : 첫번째 축(2차원의 경우 가로축)을 따라 분할
-	hsplit(ary, indices_or_sections) : 두번째 축(2차원의 경우 세로축)을 따라 분할
-	split(ary, indices_or_sections, axis) : axis가 0이면 vsplit, axis가 1이면 hsplit과 동일
+4  연산
 
-	array_split(ary, indices_or_sections, axis) : 나눠지지 않는 정수로도 split 가능
+요소별 연산 → 같은 위치의 값끼리 계산
+@ → 행렬곱, 단위행렬 → 행렬곱에서 값을 그대로 유지하는 행렬
+sum(), min(), max(), mean(), var(), std() → 합계, 최솟값, 최댓값, 평균, 분산, 표준편차
+범용함수 → add(), sqrt()처럼 배열 요소에 연산을 적용하는 함수
+브로드캐스팅 → 호환되는 배열의 모양을 맞춰 요소별 연산을 수행하는 규칙
+
+
+5  합치기와 나누기
+
+axis → 처리할 축
+concatenate() → 기존 축을 따라 연결, stack() → 새 축을 만들어 쌓기
+vstack(), hstack(), dstack() → 세로, 가로, 깊이 방향으로 쌓기
+column_stack(), row_stack() → 열 또는 행 방향으로 쌓기
+vsplit(), hsplit() → 행 또는 열 방향으로 분할
+split() → 지정 축으로 같은 크기의 구간 분할
+array_split() → 균등하게 나누어지지 않아도 분할

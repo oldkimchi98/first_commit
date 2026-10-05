@@ -1,97 +1,25 @@
-파일 역할
-
-ex.app.py : 이름을 입력받아 목록에 추가 후, 조건문·반복문으로 출력
-ex2_quiz.py : 숫자를 입력받아 구구단을 출력 후, 404오류 화면 처리
-templates : 데이터가 들어갈 HTML 틀
-base.html : 모든 페이지의 공통 구조 (공통 문서양식)
-1_index.html, 2_quiz.html : 각 페이지별 내용
-header.html : 공통 머리말
-footer.html : 공통 꼬리말
-static : CSS, 이미지 등
-requirements.txt : 필요한 라이브러리와 버전(실행 환경목록)
+﻿Flask  Jinja2와 HTML 템플릿
 
 
+1절  화면 생성 흐름
 
-전체적인 흐름
-
-브라우저에서 이름 입력 후 제출
-↓
-Flask가 POST 요청을 받음
-↓
-request.form에서 입력값을 꺼냄
-↓
-리스트에 추가 후 개수 계산
-↓
-render_template()으로 HTML에 데이터 전달
-↓
-jinja2가 변수·조건문·반복문을 처리
-↓
-완성된 HTML을 브라우저에 표시
-
-Jinja2는 브라우저에서 실행되는 문법이 아니라는 점.
+폼 입력 → Flask에서 데이터 처리 → HTML 템플릿에 전달 → Jinja2 처리 → 브라우저에 표시
+Jinja2는 서버에서 변수, 조건문, 반복문을 처리해 HTML을 만드는 템플릿 도구다.
 
 
+2절  파일의 역할
 
-문법 정리
-
-@app.route("/", methods=["GET", "POST"])
-↓
-@app.route("/") : 주소/로 요청이 오면 아래의 index()를 실행해라. (라우팅)
-+
-methods=["GET", "POST"] : GET, POST 방식을 받겠다.
-↓
-def index(name=""):
+templates → 데이터를 넣어 완성할 HTML 틀
+base.html → 여러 페이지가 공유하는 공통 문서 구조
+header.html과 footer.html → 공통 머리말과 꼬리말
+static → CSS와 이미지 같은 고정 파일
+각 페이지의 HTML → 해당 화면만의 내용
 
 
-if request.method == "POST":
-    name = request.form.get("name")
-    lst.append(name)
-↓
-request.method : 현재 요청 방식
-↓
-조건이 Flase라면 다음 줄로 이동
-↓
-cnt = len(lst) lst 개수 확인
+3절  핵심 처리
 
-
-return render_template(
-    "1_index.html",
-    name=name,
-    cnt=cnt,
-    names=lst
-)
-↓
-파이썬 데이터를 HTML 템플릿으로 전달
-↓
-name=name
-cnt=cnt
-names=lst
-템플릿에서 사용할 이름 = 파이썬의 값
-↓
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+request.method → 현재 요청이 GET인지 POST인지 확인
+request.form.get() → 폼에서 항목 이름에 해당하는 값 읽기
+render_template() → 템플릿에 Python 데이터를 전달하고 HTML 생성
+템플릿에서 사용할 이름과 Python 값을 연결해 전달한다.
+Jinja2 처리는 서버에서 끝나며 브라우저는 완성된 HTML을 받는다.

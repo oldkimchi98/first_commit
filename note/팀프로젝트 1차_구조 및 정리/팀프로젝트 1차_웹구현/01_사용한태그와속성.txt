@@ -1,0 +1,31 @@
+﻿팀 프로젝트  사용한 태그와 속성
+
+
+1절  화면 구조
+
+header와 nav → 사이트 이름과 메뉴
+aside → 조회 조건과 지도
+main과 section → 핵심 내용과 주제별 구역
+article → 개별 상권 카드
+div와 span → 스타일 적용을 위한 내용 묶음
+
+
+2절  조회와 비교
+
+form과 label → 조회 조건과 입력 요소의 이름
+select와 option → 자치구와 상권과 업종과 분기 선택
+input의 range → 추천 가중치 조절
+input의 checkbox → 비교할 상권 선택
+button → 조회와 비교 등의 실행
+table → 상권 비교표
+
+
+3절  표시와 연결
+
+dialog → 근거 지표와 점수 구성 팝업
+svg → 매출 그래프
+class와 id → 스타일 적용과 요소 찾기
+data 속성 → 동작과 이동 페이지와 상권 ID 연결
+aria-label → 요소의 접근 가능한 이름
+hidden → 영역 숨김
+실제 모델 결과가 없는 항목은 준비 상태로 표시한다.

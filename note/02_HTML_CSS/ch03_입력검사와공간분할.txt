@@ -1,30 +1,30 @@
-﻿3장. 입력 검사와 공간 분할
+﻿3장  입력 검사와 공간 분할
 
-1절. 입력 검사 속성
-required : 필수 입력
-placeholder : 짧은 입력 힌트
-pattern : 입력값이 맞아야 하는 정규식
-min, max : 숫자 등의 최소·최대값
-autocomplete : 자동 완성 동작
-autofocus : 자동 초점 요청
-readonly : 지원 입력 요소의 사용자 수정 방지
-disabled : 비활성화, 일반적으로 제출에서도 제외
 
-2절. JavaScript 검사
-value : 입력값
-trim() : 앞뒤 공백 제거
-length : 문자열 길이
-focus() : 입력창에 초점 이동
-return false : 인라인·기본 제출 이벤트의 제출 제한
+1절  입력 검사
 
-3절. 공간 분할
-div : 의미 없이 영역 묶음 (기본 표시가 block)
-span : 문장 일부 묶음 (기본 표시가 inline)
-header : 머리말
-nav : 주요 메뉴
-section : 주제별 내용
-footer : 하단 정보
+required → 필수 입력
+placeholder → 짧은 입력 힌트
+pattern → 입력값이 맞아야 하는 정규식
+min과 max → 최소값과 최대값
+readonly → 사용자 수정 방지
+disabled → 비활성화하며 일반적으로 제출에서도 제외
+입력창의 이름은 label로 표시한다. 브라우저 검사와 서버 검사는 각각 필요하다.
 
-cf. placeholder만으로 입력창 이름을 대신하지 않기.
-블록·인라인은 CSS display로 변경 가능.
-브라우저 입력 검사와 서버 검사는 별도로 필요.
+
+2절  JavaScript 검사
+
+value → 입력값
+trim() → 앞뒤 공백 제거
+length → 문자열 길이
+focus() → 입력창으로 초점 이동
+
+
+3절  공간 분할
+
+div → 영역 묶음
+span → 문장 일부 묶음
+header → 머리말
+nav → 주요 메뉴
+section → 주제별 내용
+footer → 하단 정보

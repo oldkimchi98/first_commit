@@ -1,0 +1,33 @@
+﻿9장  Iris 종별 예측과 다양한 DNN 구성 방식
+
+
+핵심 이해와 흐름
+
+Iris 분류 → 꽃의 네 가지 측정값으로 세 가지 종을 구분한다. 입력 수는 특징 수, 출력 수는 클래스 수에 맞춘다.
+흐름 → 입력과 종 타겟 분리 → 종을 정수 라벨로 변환 → 데이터 분할 → 모델 구성과 학습 → 검증 성능 점검 → 시험셋 평가.
+DNN → 여러 은닉층을 가진 신경망. 정수 타겟을 그대로 사용하면 sparse_categorical_crossentropy, 원핫 타겟이면 categorical_crossentropy를 쓴다. 출력은 softmax다.
+
+
+네 가지 모델 구성 방식
+
+Sequential → 층을 한 줄로 연결한다. 처음에 층 목록을 전달하거나 add()로 차례로 추가한다.
+MLPClassifier → scikit-learn의 다층 퍼셉트론 분류기. 은닉층 구조와 학습 설정을 지정하고 fit()으로 학습한다.
+모델 생성 클래스 → 입력 수, 활성화 함수, 출력 수를 받아 모델을 만든다. 생성 과정을 재사용하기 쉽다.
+함수형 API → Input에서 각 층의 입출력을 연결하고 Model로 묶는다. 직렬 구조뿐 아니라 여러 갈래와 합류 구조도 표현한다.
+
+
+함수형 API의 핵심
+
+병렬 연결 → 같은 입력을 여러 층에서 각각 처리한다. Concatenate는 각 출력의 값을 이어 붙인다.
+잔차 연결 → 변환하기 전 값과 변환한 값을 더해 다음 층으로 전달한다. add()로 더하는 두 출력의 형태는 서로 맞아야 한다.
+하이퍼파라미터 → 은닉층 수, 뉴런 수, 학습률처럼 사람이 정하는 설정. 가중치와 편향은 데이터로 학습한다.
+
+
+평가와 필수 함수
+
+EarlyStopping → 검증 성능이 멈추면 조기 종료. ModelCheckpoint → 개선된 모델 저장. 모델 선택은 검증셋, 최종 평가는 시험셋을 쓴다.
+train_test_split()과 LabelEncoder() → 분할과 라벨 변환.
+Sequential(), MLPClassifier(), Input(), Model() → 모델 구성. Concatenate()와 add() → 출력 합류.
+fit() → 학습. evaluate() 또는 MLPClassifier의 score() → 평가.
+Keras의 predict() → 모델 출력. MLPClassifier의 predict() → 클래스 라벨. softmax 출력의 argmax() → 가장 큰 확률의 열 위치.
+confusion_matrix() → 실제 분류와 예측 비교.

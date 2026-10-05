@@ -1,194 +1,28 @@
-전체적인 구조적 요약
-Flask를 이용해 Python 코드를 웹에서 실행하고, 마지막에는 머신러닝 모델의 예측 결과까지 HTML화면에 보여주는 과정.
-
-전체흐름 → 사용자 → 웹브라우저에서 주소 입력 → Flask가 주소를 받음 → Python 함수 실행 → 필요하면 머신러닝 모델 실행 → HTML 페이지 생성 → 브라우저에 결과 표시
+﻿Flask  프로젝트 구조와 웹 실행 흐름
 
 
-1.  .venv 폴더 이 프로젝트 전용 python 환경
-→ 이 Flask 프로젝트 안에서만 라이브러리를 사용하도록 별도의 공간을 만드는 것.
+1절  웹 실행 흐름
 
-용도는? 프로젝트마다 사용하는 라이브러리 버전이 다를 수 있기 때문에, 충돌하게 될 경우를 대비함.
-→ .venv = 이 프로젝트만을 위한 독립적인 Python 작업실
-
-# 가상환경만들기 : python -m venv .venv
-# 가상환경 들어가기 : .venv\Scripts\activate
-# 필요한 라이브러리 : pip install statsmodels, joblib, flask (개별설치X)
-# 필요한 라이브러리 설치 : pip install -r requirements.txt
-# 파일명 app.py이면 실행 : flask run --debug
+주소 요청 → Flask의 처리 함수 실행 → 필요한 데이터나 모델 사용 → HTML 또는 데이터 응답
+Flask는 Python으로 웹 요청을 처리하는 도구다. 모델의 예측 결과도 웹 화면으로 전달할 수 있다.
 
 
-2. __pycache__
-→ Python이 실행한 코드를 조금 더 빠르게 다시 실행하기 위해 자동으로 만드는 캐시 폴더. (Python이 자동 생성 O)
+2절  폴더와 파일의 역할
+
+.venv → 프로젝트별 라이브러리를 분리하는 가상환경
+app.py → 웹 애플리케이션과 요청 처리 함수를 구성하는 파일
+templates → 사용자에게 보여줄 HTML 템플릿
+static → CSS, JavaScript, 이미지 같은 고정 파일
+model과 predict.py → 저장된 모델과 예측 로직. 웹 요청마다 모델을 다시 학습하지 않고 불러와 사용
+requirements.txt → 프로젝트에 필요한 라이브러리와 버전 목록
 
 
-3. model 폴더
-→ 학습이 끝난 머신러닝 모델을 저장하는 폴더.
+3절  라우팅과 핵심 기능
 
-용도는? 머신러닝 모델을 웹서버를 실행할 때마다 다시 학습시키면 매우 비효율적이기 때문.
-원래는 데이터 준비 → 모델 학습 → 학습된 모델 저장
-Flask에서는 저장된 모델 불러오기 → 새 데이터 입력 → 예측
-
-
-4. static 폴더
-→ 웹페이지에서 사용하는 고정된 파일을 넣는 공간
-static = 웹사이트 꾸미기와 기능에 사용하는 파일 창고
-
-
-5. templates 폴더
-→ HTML 파일을 넣는 폴더
-Flask는 자동으로 templates/index.html을 찾음
-templates = 사용자가 실제로 보게 될 HTML 화면
-
-
-6. app.py 파일
-
-from flask import Flask		# Flask 기능을 가져오기 (Python 자체에는 웹서버 기능이 없기때문에 Flask 라이브러리를 사용)
-app = Flask(__name__)		# Flask 웹 애플리케이션을 만듬. -> app 명칭의 실제 웹 프로그램 생성
-
-7. @app.route('/')
-→ 사용자가 / 주소로 들어오면 -> main_handler() 실행
-
-@app.route('/')
-def main_handler():			
-    return '<h1>Hello world</h1>'	
-
-용도는? 웹사이트에는 여러 주소가 있기 때문에 각 주소마다 서로 다른 기능을 실행해야함. 
-그래서 route가 URL과 Python 함수를 연결해줌.
-
-
-8. /apt 예제
- → 사용자가 해당 주소로 들어가면 get_apt() 함수가 실행됨.
-
-@app.route('/apt')
-def get_apt():
-    return {
-        'price':100,
-        'unit':'won'
-    }
-
-용도는 ? Flask가 단순히 HTML만 보여주는 게 아니라
-Python 데이터 / 딕셔너리 / JSON / 머신러닝 결과 같은 것도 웹으로 전달할 수 있다는 걸 배우기 위한 예제임.
-
-
-9. ex1_app.py
-→ Python 파일을 직접 -> Python ex1_app.py로 실행할 수 있게 해줌.
-if __name__ == '__main__':
-    app.run(debug=True, port=80)		# debug=True : 개발 중 코드 수정이나 오류 확인을 편하게 해주는 기능. / port=80 : 웹서버가 사용할 포트 번호임.
-
-
-10. ex2_notdecorator.py
-→ 데코레이터를 이해하기 위한 준비 파일
-
-hello() 실행 전
-   ↓
-추가 작업
-   ↓
-hello()
-   ↓
-추가 작업
-
-용도는? Flask에서 계속 @app.route('/') 가 나오기 때문에, @문법을 이해시키기 위해 먼저 일반 함수로 보여준 것
-
-
-11. ex3_decorator.py
-
-일반 함수
-↓
-함수를 감싸기
-↓
-Decorator
-↓
-Flask @app.route
-
-
-12. ex4_staticDynamicRout.py
-→ 실제 웹사이트는 사용자마다 URL이 달라지기 때문에 필요함
-동적 라우팅 = URL 일부를 변수처럼 받는 것
-
-@app.route('/')는 고정된 URL이고,
-@app.route('/profile/<string:username>')는 값이 변하는 URL임.
-
-
-13. url_for()
-→ URL을 직접 작성하지 않고 함수 이름을 이용해서 URL을 만들어주는 기능.
-
-용도는? 나중에 주소 구조를 바꾸더라도 코드 관리가 편해지기때문.
-
-
-14. ex5_htmlRendering.py
-→ 배운 내용을 토대로 실제 웹사이트처럼 연결
-
-Flask
-↓
-templates
-↓
-index.html
-↓
-브라우저
-
-
-15. predict.py
-→ 머신러닝과 Flask가 연결됨.
-
-2025
-84㎡
-10층
- ↓
-predict_apt_price()
- ↓
-머신러닝 모델
- ↓
-예측가격
- ↓
-"500,000,000원"
-
-역할을 분리하기 위해 별도의 predict.py로 만듬
-
-
-16. requirements.txt
-→ 다른 컴퓨터에서도 똑같은 환경을 만들기 위함.
-
-예를 들어 팀원이 프로젝트를 받으면 일일이 pip install 할 필요없이
-pip install -r requirements.txt 한번이면 가능하기 때문.
-
-requirements.txt = 이 프로젝트를 실행하기 위해 필요한 재료 목록
-
-
-핵심 정리
-
-1. Flask
-Python으로 웹서버를 만드는 도구
-
-2. @app.route()
-URL과 Python 함수를 연결
-
-3. templates
-HTML 파일을 넣는 곳
-
-4. static
-CSS / JS / 이미지 넣는 곳
-
-5. predict.py + model
-머신러닝 모델을 불러와 실제 예측
-
-
-최종 구조
-
-브라우저
-   ↓
-URL 입력
-/apt/2025/84/10
-   ↓
-@app.route()
-   ↓
-get_apt_price()
-   ↓
-predict_apt_price()
-   ↓
-머신러닝 모델
-   ↓
-가격 예측
-   ↓
-predict.html
-   ↓
-브라우저에 결과 표시
+라우팅 → 요청 주소와 처리 함수를 연결하는 일
+동적 라우팅 → 주소의 일부를 변수로 받아 요청별로 다른 값을 처리
+데코레이터 → 함수를 감싸 추가 기능을 적용하는 방식. Flask의 route 등록에 사용
+Flask() → 웹 애플리케이션 생성
+app.route() → 주소에 처리 함수 연결
+url_for() → 함수 이름을 기준으로 주소 생성
+app.run() → 개발용 웹서버 실행

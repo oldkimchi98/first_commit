@@ -1,25 +1,23 @@
-﻿1장. JavaScript 출력과 연결
+﻿1장  JavaScript 출력과 연결
 
-1절. 연결
-<script>코드</script> : HTML 안에 작성
-<script src="app.js"></script> : 외부 파일 연결
-defer : 외부 일반 스크립트를 문서 파싱 후 실행
 
-2절. 출력
-console.log() : 개발자 도구 콘솔 출력
-document.write() : 문서에 내용 작성 (수업 기초 예제)
-alert() : 안내 대화상자
-confirm() : 확인 true / 취소 false
-prompt() : 입력 문자열 / 취소 null
+1절  연결
 
-3절. 주석
-// : 한 줄 주석
-/* 내용 */ : 여러 줄 주석
+script → HTML 안에 코드 작성 또는 외부 JavaScript 연결
+src → 외부 파일 경로
+defer → 외부 일반 스크립트를 문서 파싱 후 실행
 
-예)
-const answer = confirm("삭제하시겠습니까?");
-console.log(answer);
 
-cf. 콘솔은 화면 출력과 다름.
-document.write()는 문서 로딩 후 호출하면 문서를 덮어쓸 수 있음.
-프로젝트 화면 변경은 textContent·innerHTML 등을 사용.
+2절  필수 출력 함수
+
+console.log() → 개발자 도구 콘솔 출력
+alert() → 안내 대화상자
+confirm() → 확인 여부를 true 또는 false로 반환
+prompt() → 입력 문자열 반환. 취소하면 null
+화면의 텍스트 변경에는 textContent를 사용한다.
+
+
+3절  주석
+
+// → 한 줄 주석
+/* */ → 여러 줄 주석

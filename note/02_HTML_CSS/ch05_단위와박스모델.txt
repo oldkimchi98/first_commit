@@ -1,31 +1,29 @@
-﻿5장. 단위와 박스 모델
+﻿5장  단위와 박스 모델
 
-1절. 단위
-px : CSS 픽셀 단위
-% : 속성별 기준에 대한 비율
-em : 글꼴 크기를 기준으로 하는 상대 단위
-pt : 인쇄 등에 쓰는 단위 (1pt = 4/3 CSS px)
 
-2절. 박스
-width, height : 너비·높이
-margin : 테두리 바깥 여백
-padding : 내용과 테두리 사이 여백
-border : 테두리
-border-radius : 모서리 둥글기
-box-sizing : 너비·높이 계산 방식
+1절  단위
 
-3절. 여백 순서
-값 4개 : 위 → 오른쪽 → 아래 → 왼쪽
-값 2개 : 위아래 → 좌우
-margin: 10px auto : 위아래 10px, 좌우 자동
+px → CSS 픽셀 단위
+% → 속성별 기준에 대한 비율
+em → 글꼴 크기를 기준으로 하는 상대 단위
+pt → 인쇄 등에 사용하는 단위
 
-4절. 크기 계산
-content-box : width에 padding·border가 추가됨
-border-box : width 안에 padding·border 포함
 
-예)
-width:100px; padding:10px; border:5px solid;
-content-box의 테두리 포함 너비 : 130px
-border-box의 테두리 포함 너비 : 100px
+2절  박스 구조
 
-cf. margin은 border-box에도 포함되지 않음.
+내용 → padding → border → margin
+width와 height → 너비와 높이
+padding → 내용과 테두리 사이 여백
+border → 테두리
+margin → 테두리 바깥 여백
+border-radius → 모서리 둥글기
+
+
+3절  크기와 여백 계산
+
+box-sizing → 너비와 높이의 계산 방식
+content-box → 지정 크기에 padding과 border가 추가됨
+border-box → 지정 크기에 padding과 border가 포함됨
+margin은 두 방식 모두 크기에 포함되지 않는다.
+여백 값 4개 → 위 → 오른쪽 → 아래 → 왼쪽
+여백 값 2개 → 위아래 → 좌우

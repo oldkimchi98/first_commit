@@ -1,0 +1,27 @@
+﻿팀 프로젝트  화면 갱신과 안내 함수
+
+
+1절  화면 갱신
+
+renderPage() → 현재 페이지에 맞는 갱신 함수 실행
+renderTrend()와 renderOverview() → 매출 추이와 위험 요약
+renderComparison()과 renderRiskComparison() → 상권 비교와 위험 비교
+renderRanking()과 renderRankingDetail() → 추천 순위와 선택 상권의 상세
+renderRecommendations() → 추천 카드
+
+
+2절  차트와 선택
+
+salesChart() → 매출 그래프 생성
+updateProbabilities() → 위험 확률을 숫자와 막대에 반영
+selectCard() → 선택 상권과 카드 표시 변경
+MarketMaps.render() → 지도 또는 준비 상태 표시
+
+
+3절  동작과 안내
+
+configureActions() → 버튼과 입력 요소의 동작 연결
+doAction() → 동작 이름에 따라 기능 실행
+dialog()와 toast() → 팝업과 일시 알림
+데이터 선택 → 갱신 함수 실행 → 화면 표시
+가중치 조절은 화면용 지표 계산이다. 실제 모델 결과와 구분한다.

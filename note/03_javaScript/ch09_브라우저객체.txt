@@ -1,27 +1,25 @@
-﻿9장. 브라우저 객체 모델
+﻿9장  브라우저 객체 모델
 
-1절. window
-window : 브라우저의 전역 객체
-open(주소,이름,옵션) : 새 창·탭 열기
-close() : 스크립트로 연 창 등의 닫기
-opener : 현재 창을 연 창 참조
 
-2절. location
-location.href : 현재 주소 읽기·다른 주소로 이동
-location.reload() : 현재 페이지 새로고침
-location.assign() : 지정 주소로 이동
-location.replace() : 현재 방문 기록을 교체하며 이동
+1절  창 제어
 
-3절. history
-history.back() : 이전 기록
-history.forward() : 다음 기록
-history.go(숫자) : 지정한 만큼 기록 이동
+window → 브라우저의 전역 객체
+open() → 새 창이나 탭 열기
+close() → 스크립트로 연 창 등의 닫기
+opener → 현재 창을 연 창 참조
+팝업이 차단되면 open() 결과가 null일 수 있다. 다른 출처의 창은 문서 접근이 제한된다.
 
-수업 예)
-부모 창에서 작은 창 열기
-자식 창의 값을 부모 창 입력창으로 전달
-화면 이동과 이전 페이지로 돌아가기
 
-cf. 팝업이 차단되면 open() 결과가 null일 수 있음.
-다른 출처의 창은 문서 접근이 제한됨.
-window의 parent와 팝업의 opener는 구분.
+2절  주소 이동
+
+location.href → 현재 주소 읽기 또는 다른 주소로 이동
+location.reload() → 새로고침
+location.assign() → 지정 주소로 이동
+location.replace() → 현재 방문 기록을 교체하며 이동
+
+
+3절  방문 기록
+
+history.back() → 이전 기록으로 이동
+history.forward() → 다음 기록으로 이동
+history.go() → 지정한 만큼 기록 이동

@@ -1,34 +1,27 @@
-﻿2장. 목록과 표 태그
+﻿2장  목록과 표 태그
 
-1절. 목록
-ul : 순서가 없는 목록
-ol : 순서가 있는 목록
-li : 목록 항목
-ol의 start : 시작 번호
-ol의 type : 1, a, A, i, I 등 번호 형식
 
-예)
-<ul>
-    <li>회사소개</li>
-    <li>서비스소개</li>
-</ul>
+1절  목록
 
-2절. 표
-table : 표 생성
-caption : 표 제목·설명
-tr : 행 생성
-th : 머리글 셀
-td : 일반 셀
-thead : 머리글 행 묶음
-tbody : 본문 행 묶음
+ul → 순서가 없는 목록
+ol → 순서가 있는 목록
+li → 목록의 개별 항목
+ol의 start와 type → 시작 번호와 번호 형식
 
-3절. 셀 병합
-colspan : 가로로 합칠 열의 개수
-rowspan : 세로로 합칠 행의 개수
 
-예)
-<th colspan="2">평균</th>
+2절  표 구조
 
-cf. 병합한 자리에는 셀을 중복 작성하지 않기.
-테두리는 CSS border, 셀 간격은 border-spacing 사용.
-표는 데이터 표시용. 페이지 배치는 CSS로 처리.
+table → 표
+caption → 표 제목과 설명
+tr → 행
+th → 머리글 셀
+td → 일반 셀
+thead와 tbody → 머리글 행과 본문 행 묶음
+
+
+3절  셀 병합
+
+colspan → 가로로 합칠 열의 개수
+rowspan → 세로로 합칠 행의 개수
+병합한 자리에는 셀을 중복 작성하지 않는다.
+표는 데이터 표시에 사용한다. 테두리와 셀 간격은 CSS의 border와 border-spacing으로 조절한다.

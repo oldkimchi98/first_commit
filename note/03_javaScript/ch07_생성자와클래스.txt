@@ -1,31 +1,18 @@
-﻿7장. 생성자 함수와 클래스
+﻿7장  생성자 함수와 클래스
 
-1절. 생성자
-new : 생성자를 사용해 객체 생성
-생성자 함수 : 같은 구조의 객체를 만드는 함수
-this.name : 생성되는 객체의 속성 지정
-prototype : 인스턴스가 공유할 메서드 등을 정의
 
-2절. class
-class : 객체의 구조와 동작 정의
-constructor() : 객체 생성 시 초기화
-메서드 : 합계·평균 등 객체의 동작
+1절  생성자 함수
 
-수업 예)
-class Student {
-    constructor(name, kor, mat, eng){
-        this.name = name;
-        this.kor = kor;
-        this.mat = mat;
-        this.eng = eng;
-    }
-    getSum(){ return this.kor + this.mat + this.eng; }
-}
+생성자 함수 → 같은 구조의 객체를 만드는 함수
+new → 생성자를 사용해 객체 생성
+this → 생성 중인 객체의 속성을 지정할 때 사용
+prototype → 생성된 객체들이 공유할 메서드 등을 정의
 
-3절. 학생 객체
-getSum() : 세 과목 합계
-getAvg() : 합계를 과목 수로 나눈 평균
-toString() : 학생 정보의 문자열 표현
 
-cf. 클래스 메서드는 일반적으로 prototype에서 공유.
-new Student(...)로 학생별 객체를 생성.
+2절  클래스
+
+class → 객체의 구조와 동작 정의
+constructor() → 객체 생성 시 초기화
+메서드 → 객체가 수행하는 동작
+인스턴스 → 생성자나 클래스로 만든 개별 객체
+클래스의 일반 메서드는 prototype에서 공유한다.
